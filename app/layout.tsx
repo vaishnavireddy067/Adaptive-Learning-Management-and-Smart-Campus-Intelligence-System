@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXTAUTH_URL || "https://adaptive-learning-management-and-smart-campus-intelligence-system.vercel.app"),
   title: "AVNIET – Smart College Management System",
   description: "AVNIET Smart Campus – Next-Gen campus management with LMS, Student ERP, faculty tools, attendance, timetables and more.",
 };

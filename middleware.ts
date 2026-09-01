@@ -12,8 +12,8 @@ export async function middleware(req: NextRequest) {
 
   // Protect /dashboard and /api/ai routes
   if (!token && (pathname.startsWith("/dashboard") || pathname.startsWith("/api/ai"))) {
-    const loginUrl = new URL("/login", req.url);
-    loginUrl.searchParams.set("callbackUrl", req.url);
+    const loginUrl = new URL("/login", req.nextUrl.origin);
+    loginUrl.searchParams.set("callbackUrl", req.nextUrl.href);
     return NextResponse.redirect(loginUrl);
   }
 
