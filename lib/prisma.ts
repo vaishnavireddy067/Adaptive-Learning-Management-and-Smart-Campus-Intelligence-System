@@ -1,6 +1,16 @@
 import { PrismaClient } from '@prisma/client';
 
-const prismaClientSingleton = () => new PrismaClient();
+const fallbackUrl = "postgresql://neondb_owner:npg_1MjkAmDEts7W@ep-rough-resonance-aywdj975-pooler.c-5.us-east-2.aws.neon.tech/neondb?sslmode=require";
+
+const prismaClientSingleton = () => {
+    return new PrismaClient({
+        datasources: {
+            db: {
+                url: process.env.DATABASE_URL || fallbackUrl,
+            },
+        },
+    });
+};
 
 const globalForPrisma = globalThis as unknown as {
     prisma: ReturnType<typeof prismaClientSingleton> | undefined;
