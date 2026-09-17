@@ -11,17 +11,13 @@ import { Button } from '@/components/ui/Button';
 
 export default function StudentERPDashboard() {
     return (
-        <div className="flex min-h-screen bg-[#f8fafc] font-sans text-slate-900">
-            {/* Standard Sidebar - Dark theme restored */}
-            <Sidebar role="student" systemType="student-erp" />
-
-            <main className="flex-1 ml-64 p-8">
-                <header className="mb-12 flex justify-between items-start">
-                    <div>
-                        <h1 className="text-3xl font-black text-slate-900 tracking-tight">Hi, Vaishnavi 👋</h1>
-                        <p className="text-sm font-bold text-slate-400 mt-1 uppercase tracking-widest opacity-80">Friday, Oct 20, 2026 | 24°C Sunny</p>
-                    </div>
-                </header>
+        <div className="p-8 font-sans text-slate-900">
+            <header className="mb-12 flex justify-between items-start">
+                <div>
+                    <h1 className="text-3xl font-black text-slate-900 tracking-tight">Hi, Vaishnavi 👋</h1>
+                    <p className="text-sm font-bold text-slate-400 mt-1 uppercase tracking-widest opacity-80">Friday, Oct 20, 2026 | 24°C Sunny</p>
+                </div>
+            </header>
 
                 <div className="grid grid-cols-12 gap-10">
                     <div className="col-span-8 space-y-10">
@@ -144,7 +140,6 @@ export default function StudentERPDashboard() {
                         </div>
                     </div>
                 </div>
-            </main>
         </div>
     );
 }

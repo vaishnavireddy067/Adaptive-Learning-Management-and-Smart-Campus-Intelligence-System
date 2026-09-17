@@ -48,42 +48,35 @@ export default function Home() {
       <main className="flex-1">
 
         {/* ── Hero Section ── */}
-        <section className="relative pt-28 pb-32 px-10 text-center overflow-hidden">
-          {/* Gradient bg blobs */}
-          <div className="absolute inset-0 -z-10 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-gradient-to-br from-indigo-100 via-purple-50 to-white rounded-full blur-3xl opacity-70" />
-            <div className="absolute -top-20 right-0 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200/30 rounded-full blur-3xl" />
-          </div>
-
+        <section className="relative pt-24 pb-20 px-10 text-center overflow-hidden">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-8 animate-in fade-in slide-in-from-bottom-2 duration-700">
+            <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
               • Next-Gen Campus Management
             </div>
-            <h1 className="text-[84px] font-black tracking-tighter text-slate-900 mb-6 uppercase leading-[0.9] animate-in fade-in zoom-in-95 duration-1000">
+            <h1 className="text-[76px] md:text-[92px] font-black tracking-tighter text-slate-900 mb-6 uppercase leading-none">
               {COLLEGE_NAME}
             </h1>
-            <p className="max-w-[720px] mx-auto text-xl text-slate-500 font-semibold mb-4 leading-relaxed animate-in fade-in duration-1000 delay-200">
+            <p className="max-w-[720px] mx-auto text-xl text-slate-700 font-bold mb-4 leading-relaxed">
               {COLLEGE_TAGLINE}
             </p>
-            <p className="max-w-[600px] mx-auto text-base text-slate-400 mb-12 animate-in fade-in duration-1000 delay-300">
+            <p className="max-w-[620px] mx-auto text-sm text-slate-400 font-medium mb-10 leading-relaxed">
               Experience a seamless, digital-first approach to education management — from smart attendance to AI-powered learning.
             </p>
-            <div className="flex items-center justify-center gap-6 animate-in fade-in slide-in-from-top-4 duration-700 delay-500">
+            <div className="flex items-center justify-center gap-6">
               <Link href="/portals">
-                <Button className="h-14 px-10 rounded-xl bg-indigo-600 text-[11px] font-black uppercase tracking-[0.2em] shadow-2xl shadow-indigo-200 hover:scale-105 transition-all">
+                <Button className="h-12 px-8 rounded-xl bg-[#4338ca] hover:bg-[#3730a3] text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-indigo-600/30 hover:scale-105 transition-all">
                   Get Started →
                 </Button>
               </Link>
-              <a href="#about" className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 transition-colors">
+              <a href="#about" className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-slate-500 hover:text-indigo-600 transition-colors">
                 Learn More <ArrowRight size={14} />
               </a>
             </div>
           </div>
         </section>
 
-        {/* ── Stats Bar ── */}
-        <section className="py-14 bg-indigo-600">
+        {/* ── Stats Bar (Matches Screenshot) ── */}
+        <section className="py-14 bg-[#4338ca]">
           <div className="max-w-6xl mx-auto px-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
             {[
               { value: '5,000+', label: 'Students', icon: Users },
@@ -92,121 +85,113 @@ export default function Home() {
               { value: '98%', label: 'Satisfaction Rate', icon: Star },
             ].map(stat => (
               <div key={stat.label} className="flex flex-col items-center gap-2">
-                <stat.icon size={24} className="opacity-70" />
-                <span className="text-4xl font-black tracking-tighter">{stat.value}</span>
-                <span className="text-indigo-200 text-[11px] font-bold uppercase tracking-widest">{stat.label}</span>
+                <stat.icon size={22} className="opacity-80" />
+                <span className="text-4xl font-black tracking-tight">{stat.value}</span>
+                <span className="text-indigo-200 text-[10px] font-bold uppercase tracking-widest">{stat.label}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── About Section ── */}
-        <section id="about" className="py-28 px-10">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-6">
+        {/* ── About Section (Matches Screenshot) ── */}
+        <section id="about" className="py-24 px-10">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-6">
+              <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-6">
                 About AVNIET
               </div>
-              <h2 className="text-4xl font-black tracking-tighter text-slate-900 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
                 A Smarter Way to Manage Your Campus
               </h2>
-              <p className="text-slate-500 text-base font-medium leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm font-medium leading-relaxed mb-4">
                 AVNIET's Smart College Management System is an integrated digital platform designed to streamline every aspect of institutional management — from admissions to academics, attendance, examinations, and beyond.
               </p>
-              <p className="text-slate-400 text-sm leading-relaxed mb-8">
+              <p className="text-slate-400 text-xs font-medium leading-relaxed mb-8">
                 Built for faculty, students, and administrators, our system unifies Smart Campus, Learning Management (LMS), and Student ERP into one powerful, AI-enhanced ecosystem.
               </p>
-              <div className="grid grid-cols-1 gap-3">
+              <div className="space-y-3">
                 {[
                   'Real-time attendance tracking with analytics',
                   'AI-powered question generation & study tools',
                   'Integrated timetables & exam management',
                   'Secure role-based access for all stakeholders',
                 ].map(item => (
-                  <div key={item} className="flex items-start gap-3 text-sm text-slate-600 font-medium">
-                    <CheckCircle2 size={18} className="text-indigo-500 mt-0.5 shrink-0" />
+                  <div key={item} className="flex items-center gap-3 text-xs font-semibold text-slate-700">
+                    <CheckCircle2 size={16} className="text-indigo-600 shrink-0" />
                     {item}
                   </div>
                 ))}
               </div>
-              <Link href="/portals" className="mt-10 inline-block">
-                <Button className="h-12 px-8 rounded-xl bg-indigo-600 text-[11px] font-black uppercase tracking-[0.2em]">
-                  Explore Portals →
-                </Button>
-              </Link>
             </div>
 
-            {/* Right side visual cards */}
-            <div className="grid grid-cols-2 gap-4">
+            {/* Right side 2x2 grid */}
+            <div className="md:col-span-6 grid grid-cols-2 gap-4">
               {[
-                { icon: BarChart3, label: 'Deep Analytics', desc: 'Real-time insights on student performance and campus operations', color: 'bg-indigo-50 text-indigo-600' },
-                { icon: Zap, label: 'AI-Powered', desc: 'Smart generators for questions, timetables, and study plans', color: 'bg-purple-50 text-purple-600' },
-                { icon: Globe, label: 'Fully Digital', desc: 'Cloud-first approach — access from anywhere, anytime', color: 'bg-emerald-50 text-emerald-600' },
-                { icon: Clock, label: 'Real-Time', desc: 'Live attendance, notifications, and instant updates', color: 'bg-amber-50 text-amber-600' },
+                { icon: BarChart3, label: 'Deep Analytics', desc: 'Real-time insights on student performance and campus operations', iconBg: 'bg-indigo-50 text-indigo-600' },
+                { icon: Zap, label: 'AI-Powered', desc: 'Smart generators for questions, timetables, and study plans', iconBg: 'bg-purple-50 text-purple-600' },
+                { icon: Globe, label: 'Fully Digital', desc: 'Cloud-first approach — access from anywhere, anytime', iconBg: 'bg-emerald-50 text-emerald-600' },
+                { icon: Clock, label: 'Real-Time', desc: 'Live attendance, notifications, and instant updates', iconBg: 'bg-amber-50 text-amber-600' },
               ].map(item => (
-                <div key={item.label} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                  <div className={`w-10 h-10 ${item.color} rounded-xl flex items-center justify-center mb-4`}>
+                <div key={item.label} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:border-slate-200 transition-all flex flex-col">
+                  <div className={`w-10 h-10 ${item.iconBg} rounded-xl flex items-center justify-center mb-4`}>
                     <item.icon size={20} />
                   </div>
                   <h4 className="text-sm font-bold text-slate-900 mb-1">{item.label}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{item.desc}</p>
+                  <p className="text-[11px] text-slate-400 font-medium leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── Features / Portals Section ── */}
-        <section id="features" className="py-24 bg-slate-50/50">
+        {/* ── Features Section (Matches Screenshot) ── */}
+        <section id="features" className="py-24 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-10">
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-6">
+              <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
                 Platform Features
               </div>
-              <h2 className="text-4xl font-black tracking-tighter text-slate-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
                 Everything You Need in One Place
               </h2>
-              <p className="text-slate-400 max-w-xl mx-auto font-medium">
+              <p className="text-slate-400 text-sm font-medium max-w-xl mx-auto">
                 Three powerful systems — Smart Campus, LMS, and Student ERP — working together seamlessly.
               </p>
             </div>
 
-            {/* System feature highlights */}
-            <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {/* 3 System Cards */}
+            <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
                   icon: Building2,
                   title: 'Smart Campus',
-                  color: 'from-indigo-500 to-indigo-700',
-                  bg: 'bg-indigo-50',
+                  headerBg: 'bg-[#4338ca]',
                   features: ['Department Management', 'Faculty Registry', 'Infrastructure Control', 'Global Announcements', 'Financial Tracking', 'Analytics Dashboard'],
                 },
                 {
                   icon: BookOpen,
                   title: 'Learning Management (LMS)',
-                  color: 'from-emerald-500 to-emerald-700',
-                  bg: 'bg-emerald-50',
+                  headerBg: 'bg-[#059669]',
                   features: ['Course Materials & Notes', 'AI Study Assistant', 'Live Classes', 'Tests & Quizzes', 'Learning Roadmaps', 'Peer Learning Forum'],
                 },
                 {
                   icon: GraduationCap,
                   title: 'Student ERP',
-                  color: 'from-rose-500 to-rose-700',
-                  bg: 'bg-rose-50',
+                  headerBg: 'bg-[#e11d48]',
                   features: ['Attendance Analytics', 'Grade Tracking', 'Fee Payments', 'Exam Records', 'Personal Schedule', 'Campus Notifications'],
                 },
               ].map(sys => (
-                <div key={sys.title} className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className={`bg-gradient-to-br ${sys.color} p-8 text-white`}>
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-4">
-                      <sys.icon size={24} />
+                <div key={sys.title} className="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden flex flex-col">
+                  <div className={`${sys.headerBg} p-8 text-white flex flex-col justify-end min-h-[140px]`}>
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center mb-4">
+                      <sys.icon size={22} />
                     </div>
-                    <h3 className="text-xl font-black tracking-tight">{sys.title}</h3>
+                    <h3 className="text-lg font-black tracking-tight">{sys.title}</h3>
                   </div>
-                  <div className="p-6 space-y-3">
+                  <div className="p-8 space-y-3.5 flex-1 bg-white">
                     {sys.features.map(f => (
-                      <div key={f} className="flex items-center gap-3 text-sm text-slate-600 font-medium">
-                        <CheckCircle2 size={15} className="text-indigo-400 shrink-0" />
+                      <div key={f} className="flex items-center gap-3 text-xs text-slate-600 font-semibold">
+                        <CheckCircle2 size={15} className="text-indigo-600 shrink-0" />
                         {f}
                       </div>
                     ))}
@@ -217,54 +202,63 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Role Cards / Portals Section ── */}
+        {/* ── Role-Based Access Section (Matches Screenshot) ── */}
         <section id="portals" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-10">
             <div className="text-center mb-16">
-              <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-6">
+              <div className="inline-block px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
                 Role-Based Access
               </div>
-              <h2 className="text-4xl font-black tracking-tighter text-slate-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-4">
                 Tailored Experience for Everyone
               </h2>
-              <p className="text-slate-400 max-w-xl mx-auto font-medium">
+              <p className="text-slate-400 text-sm font-medium max-w-xl mx-auto">
                 Dedicated dashboards for every stakeholder in the ecosystem.
               </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Link href="/login?system=smart-campus&role=super-admin" className="h-full">
-                <RoleCard
-                  title="Super Admin"
-                  description="Oversee the entire institution. Manage departments, global settings, and deep analytics."
-                  icon={Shield}
-                />
-              </Link>
-              <Link href="/login?system=smart-campus&role=admin" className="h-full">
-                <RoleCard
-                  title="Admin (HOD)"
-                  description="Manage department resources, assign faculty, and oversee local operations."
-                  icon={Lock}
-                />
-              </Link>
-              <Link href="/login?system=smart-campus&role=faculty" className="h-full">
-                <RoleCard
-                  title="Faculty"
-                  description="Manage classes, mark attendance, generate AI questions, and track student progress."
-                  icon={BookOpen}
-                />
-              </Link>
-              <Link href="/login?system=smart-campus&role=student" className="h-full">
-                <RoleCard
-                  title="Student"
-                  description="Access timetables, attendance records, courses, AI study tools, and stay updated."
-                  icon={GraduationCap}
-                />
-              </Link>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {[
+                {
+                  title: 'Super Admin',
+                  desc: 'Oversee the entire institution. Manage departments, global settings, and deep analytics.',
+                  icon: Shield,
+                  href: '/login?system=smart-campus&role=super-admin'
+                },
+                {
+                  title: 'Admin (HOD)',
+                  desc: 'Manage department resources, assign faculty, and oversee local operations.',
+                  icon: Lock,
+                  href: '/login?system=smart-campus&role=admin'
+                },
+                {
+                  title: 'Faculty',
+                  desc: 'Manage classes, mark attendance, generate AI questions, and track student progress.',
+                  icon: BookOpen,
+                  href: '/login?system=smart-campus&role=faculty'
+                },
+                {
+                  title: 'Student',
+                  desc: 'Access timetables, attendance records, courses, AI study tools, and stay updated.',
+                  icon: GraduationCap,
+                  href: '/login?system=smart-campus&role=student'
+                },
+              ].map(role => (
+                <Link key={role.title} href={role.href} className="group">
+                  <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all h-full flex flex-col">
+                    <div className="w-12 h-12 bg-[#4f46e5] text-white rounded-2xl flex items-center justify-center mb-6 shadow-md shadow-indigo-600/30 group-hover:scale-105 transition-transform">
+                      <role.icon size={22} />
+                    </div>
+                    <h3 className="text-lg font-black text-slate-900 mb-2">{role.title}</h3>
+                    <p className="text-xs text-slate-500 font-medium leading-relaxed">{role.desc}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center">
               <Link href="/portals">
-                <Button className="h-14 px-12 rounded-xl bg-indigo-600 text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-200 hover:scale-105 transition-all">
+                <Button className="h-14 px-10 rounded-2xl bg-[#4338ca] hover:bg-[#3730a3] text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-xl shadow-indigo-600/30 hover:scale-105 transition-all">
                   Access Login Portals →
                 </Button>
               </Link>
