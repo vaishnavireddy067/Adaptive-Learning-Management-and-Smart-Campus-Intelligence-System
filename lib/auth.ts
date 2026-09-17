@@ -3,6 +3,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "./prisma";
 import bcrypt from "bcryptjs";
 
+const DEMO_USERS: Record<string, { id: string; name: string; role: string; password: string }> = {
+    "student@institution.edu": { id: "student-1", name: "Vaishnavi", role: "student", password: "password123" },
+    "faculty@institution.edu": { id: "faculty-1", name: "Faculty Admin", role: "faculty", password: "password123" },
+    "admin@institution.edu": { id: "admin-1", name: "Admin HOD", role: "admin", password: "password123" },
+    "superadmin@institution.edu": { id: "superadmin-1", name: "Super Admin", role: "super-admin", password: "password123" },
+};
+
 export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
@@ -16,26 +23,41 @@ export const authOptions: NextAuthOptions = {
                     return null;
                 }
 
-                const user = await prisma.user.findUnique({
-                    where: { email: credentials.email }
-                });
+                const email = credentials.email.trim().toLowerCase();
+                const password = credentials.password;
 
-                if (!user || !user.password) {
-                    return null;
+                try {
+                    const user = await prisma.user.findUnique({
+                        where: { email }
+                    });
+
+                    if (user && user.password) {
+                        const isPasswordValid = await bcrypt.compare(password, user.password);
+                        if (isPasswordValid) {
+                            return {
+                                id: user.id,
+                                email: user.email,
+                                name: user.name,
+                                role: user.role,
+                            };
+                        }
+                    }
+                } catch (dbError) {
+                    console.warn("Database lookup error during auth, checking demo fallbacks:", dbError);
                 }
 
-                const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
-
-                if (!isPasswordValid) {
-                    return null;
+                // Fallback for demo accounts (ensures instant Vercel login even if DB is not yet seeded)
+                const demo = DEMO_USERS[email];
+                if (demo && password === demo.password) {
+                    return {
+                        id: demo.id,
+                        email: email,
+                        name: demo.name,
+                        role: demo.role,
+                    };
                 }
 
-                return {
-                    id: user.id,
-                    email: user.email,
-                    name: user.name,
-                    role: user.role,
-                };
+                return null;
             }
         })
     ],
