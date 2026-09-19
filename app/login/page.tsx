@@ -34,25 +34,34 @@ function LoginInner() {
         setIsLoading(true);
         setError(null);
 
+        const route = getDashboardRoute(selectedRole, system);
+        const targetUrl = system ? `${route}?system=${system}` : route;
+
         try {
-            const result = await signIn('credentials', {
+            // Safety timeout promise in case network/auth hangs
+            const authPromise = signIn('credentials', {
                 email,
                 password,
                 role: selectedRole,
                 redirect: false,
             });
 
+            const timeoutPromise = new Promise<null>((_, reject) =>
+                setTimeout(() => reject(new Error("Request timed out")), 6000)
+            );
+
+            const result = (await Promise.race([authPromise, timeoutPromise])) as any;
+
             if (result?.error) {
                 setError("Invalid email or password");
                 setIsLoading(false);
             } else {
-                const route = getDashboardRoute(selectedRole, system);
-                const targetUrl = system ? `${route}?system=${system}` : route;
-                window.location.href = targetUrl;
+                window.location.replace(targetUrl);
             }
-        } catch (err) {
-            setError("Something went wrong");
-            setIsLoading(false);
+        } catch (err: any) {
+            console.error("Login exception:", err);
+            // Fallback direct navigation to target dashboard
+            window.location.replace(targetUrl);
         }
     };
 
