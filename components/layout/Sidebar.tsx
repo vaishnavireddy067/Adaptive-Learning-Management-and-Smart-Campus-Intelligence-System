@@ -212,6 +212,7 @@ function ErpSidebarInner({ role }: { role: Role }) {
 
     const roleLabel = role === ROLES.SUPER_ADMIN ? 'Super Admin'
         : role === ROLES.ADMIN ? 'Admin'
+        : role === ROLES.FACULTY ? 'Faculty'
         : 'Student';
 
     return (

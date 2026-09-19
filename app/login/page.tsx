@@ -38,6 +38,7 @@ function LoginInner() {
             const result = await signIn('credentials', {
                 email,
                 password,
+                role: selectedRole,
                 redirect: false,
             });
 
@@ -46,7 +47,8 @@ function LoginInner() {
                 setIsLoading(false);
             } else {
                 const route = getDashboardRoute(selectedRole, system);
-                router.push(system ? `${route}?system=${system}` : route);
+                const targetUrl = system ? `${route}?system=${system}` : route;
+                window.location.href = targetUrl;
             }
         } catch (err) {
             setError("Something went wrong");
