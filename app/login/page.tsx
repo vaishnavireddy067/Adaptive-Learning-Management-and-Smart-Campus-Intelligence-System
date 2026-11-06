@@ -19,6 +19,7 @@ function LoginInner() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    
     // System themes matching Image 6
     const systemThemes = {
         'smart-campus': { color: 'bg-indigo-600', text: 'text-indigo-100', title: 'Smart Campus Login', icon: <Building2 size={40} /> },
