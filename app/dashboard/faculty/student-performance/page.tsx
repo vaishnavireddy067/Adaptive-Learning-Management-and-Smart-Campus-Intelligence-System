@@ -6,6 +6,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/Button';
 import { TrendingUp, TrendingDown, Award, AlertTriangle, Search, ChevronRight, BarChart2, Target, BookOpen } from 'lucide-react';
 
+
 const STUDENTS_PERF = [
     { id: 'S001', name: 'Aarav Sharma', attendance: 94, quiz: 88, assignment: 90, risk: 'Low', trend: 'up', gpa: 9.1 },
     { id: 'S002', name: 'Priya Nair', attendance: 78, quiz: 72, assignment: 68, risk: 'Medium', trend: 'down', gpa: 7.4 },
